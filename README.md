@@ -117,3 +117,79 @@ Welcome to the XV Quiz for CSL 3030 - Operating Systems!
 
 ## Answers
 Please write your answers here
+
+Q1) - b - A Unix-like operating system
+Q2) - c. BSD
+Q3) - a. FAT32
+Q4) - b. As interrupts
+Q5) - a. 128
+Q6) - c. Sh
+Q7) - a. Round-robin scheduling
+Q8) - a. Paging
+Q9) - b. Using hardware interrupts
+Q10) - b. No
+Q11) - c. MIT
+
+Q12) The different states a process can be in within XV6 operating systems are:
+   Unused : The process slot is free and not in use.
+   Embryo : The process is being created by another process using fork.
+   Sleeping : The process is waiting for a event.
+   Runnable : The process is ready to run and is in scheduler's queue.
+   Running : The process currently in execution.
+   Zombie : The process has terminated, but its parent has not called wait to collect its exit status.
+
+Q13) Xv6 is a simple Unix-like operating system developed for educational purposes, has a file system structure with key components:
+   Superblock: Stores metadata about the file system such as the total number of blocks and inodes.
+   Inode: Represents a file or directory and stores information like file size, permissions, and pointers to data blocks.
+   Data Blocks: Store actual file data or directory contents.
+   Directory Entry: Maps file names to inode numbers within a directory.
+   File Descriptor Table: Maintains a table of open files tracking their status and position.
+   File Table: Manages file metadata and facilitates access to the file system.
+   File System Interface: Provides system calls for file operations allowing processes to interact with the file system.
+   Buffer Cache: Temporarily caches disk blocks in memory to reduce disk I/O operations.
+   Disk Driver: Manages communication between the operating system and the disk, handling read and write operations.
+   I/O Subsystem: Coordinates input and output operations, including interactions with the file system.
+
+Q14)  System calls are low-level interfaces provided by the operating system kernel to allow user programs to request services or resources. They provide a way for user-level programs to interact with the       
+      kernel, often involving operations that require privileged access. Examples in XV6 include fork() for process creation and open() for file manipulation.
+      Library functions are higher-level functions provided by user-space libraries that sit on top of the system calls. These functions abstract away the complexity of system calls and provide a more user-   
+      friendly interface for application development. Examples in XV6 include the C standard library functions like printf() for formatted output and malloc() for memory allocation.
+
+Q15)  In XV6 memory paging is implemented using a two-level page table system. The virtual address space is divided into fixed-size pages, and the operating system manages the mapping of virtual pages to 
+      physical frames. The page tables help in translating virtual addresses to physical addresses, enabling efficient and flexible memory management. 
+   Benefits of Paging:
+   Contiguous Allocation: Paging allows for contiguous allocation of physical memory, simplifying memory allocation and reducing fragmentation.
+   Virtual Memory: Provides a larger, more flexible virtual address space than physical memory, allowing efficient use of available resources.
+   Isolation: Each process has its own set of page tables, providing memory isolation and protection between processes.
+   Swapping: Enables swapping of pages between main memory and secondary storage, facilitating efficient use of limited physical memory.
+      
+Q16)  ls: Lists directory contents. Example: ls /
+      cp: Copies files or directories. Example: cp file1 file2
+      rm: Removes (deletes) files. Example: rm file
+
+Q17) Process synchronization in XV6 is essential to coordinate the execution of multiple processes to avoid conflicts and ensure data consistency.
+   The mechanisms of this includes:
+   Locks and Semaphores: Used to control access to shared resources, preventing simultaneous access by multiple processes.
+   Atomic Instructions: Certain assembly language instructions are used to perform operations atomically, ensuring that critical sections are executed without interruption.
+   Condition Variables: Enable processes to wait for a specific condition before proceeding, allowing for efficient resource usage.
+
+Q18) Interrupts play a crucial role in XV6 for handling external events and ensuring timely responses. In which key aspects are:
+   Interrupt Vector Table: Maps interrupt numbers to corresponding interrupt service routines (ISRs).
+   Interrupt Service Routines: Specific code segments that handle different types of interrupts.
+   Context Switching: When an interrupt occurs, the processor switches from user mode to kernel mode, allowing the kernel to handle the interrupt and resume the interrupted task.
+
+Q19) Virtual memory in XV6 involves the use of page tables to translate virtual addresses to physical addresses. 
+     Here are some advantages:
+   Memory Isolation: Each process has its own virtual address space preventing interference between processes.
+   Flexibility: Allows for easy sharing of code and data among processes.
+   Demand Paging: Pages are brought into physical memory only when needed, conserving resources.
+   Memory Protection: Provides protection against unauthorized access to memory regions.
+
+Q20) Boot process in XV6 includes following steps:
+   BIOS/UEFI Initialization: The computer's firmware initializes hardware and loads the bootloader.
+   Bootloader Execution: The bootloader (typically GRUB) loads the XV6 kernel into memory.
+   Kernel Initialization: The kernel sets up essential data structures, initializes devices, and prepares the system for execution.
+   Process Initialization: The kernel creates the first user-level process (init) and transfers control to it.
+   User Space Execution: The init process initializes the user space, spawning other processes as needed.
+   Idle Loop: The system enters an idle loop, waiting for events and handling interrupts.
+
